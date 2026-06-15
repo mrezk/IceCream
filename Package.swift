@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
@@ -13,14 +13,16 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/realm/realm-swift", 
-            from: "10.29.0"
+            url: "https://github.com/realm/realm-swift",
+            from: "20.0.0"
         )
     ],
     targets: [
         .target(
             name: "IceCream",
-            dependencies: ["RealmSwift", "Realm"],
+            dependencies: [
+                .product(name: "RealmSwift", package: "realm-swift"),
+            ],
             path: "IceCream",
             sources: ["Classes"])
     ],
